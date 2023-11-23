@@ -1,0 +1,60 @@
+{% extends 'general/components/base.html' %}
+{% block title %}{{food.name}} |{% endblock %}
+{% load static %}
+{% block index %}
+
+<section class="single_food" id="single_food">
+         {% if food is not None%}
+            <div class="single">
+               <img class="image-block" src="{{food.image.url}}" alt="">
+            </div>
+            <div class="detail">
+                  <h1>{{ food.name}}</h1>
+                  {% if food.is_premium and food.special_price  %}
+                     
+                     <div class="ps-price"><p>Price: {{ food.special_price|floatformat:'g' }} บาท</p></div>
+                     <del class="text-gray">{{ food.price|floatformat:'g' }} บาท</del>
+                     <div class="ps-de"><p>ราคาพิเศษ</p>
+                     <p>*** เมนูพิเศษสุด Premium</p>
+                     </div>
+                  {% elif  food.is_premium %}  
+                     <div class="pricee"> Price: {{food.price}} บาท</div>
+                     <div class="pre"><p>*** เมนูพิเศษสุด Premium</p></div>
+
+                  {% elif food.special_price %}
+                     <div class="ps-price">
+                        <p>Price: {{ food.special_price|floatformat:'g' }} บาท</p>
+                     </div>
+                     <del class="text-gray">{{ food.price|floatformat:'g' }} บาท</del>
+                     <div class="ps-de">
+                        <p>ราคาพิเศษ</p></div>
+                  {% else %}
+                     <p></p>
+                     <div class="pricee"> Price: {{food.price}} บาท</div>
+                     
+                     <div class="normal"><b>ราคาปกติ</b></div>
+                     <p></p>
+                  {% endif %}
+                  <div class="dis"><p>{{food.discription}}</p></div>
+                  <div class="iconss">
+                     <a href="#" class="btn"><i class="fa-solid fa-heart"></i><button type="submit"></button></a>
+                   
+                  
+            
+                    <button data-food="{{food.id}}" data-action="add"class="btn update-cart">เพิ่มลงตะกร้า</button>
+                    
+                 
+                 
+                     <a href="{% url 'showcart' %}" ><button data-food="{{food.id}}" data-action="add"  class="btn update-cart">ซื้อตอนนี้</button></a>
+                  </div>
+               </div> 
+            </div>
+            
+            </div>
+         {% else %}
+            <p>***ไม่พบเมนูนี้***</p>
+         {% endif %}
+      
+</section>
+
+{% endblock %}

@@ -1,0 +1,540 @@
+
+/* mali-regular - thai_latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mali';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/mali-v9-thai_latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+         url('fonts/mali-v9-thai_latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+:root{
+    --color: #fbcd89;
+    --border: .2rem solid #fbcd89;
+    --border-hover: .1rem #fbcd89;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*, ::before, ::after{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .1s linear;
+}
+
+html {
+    font-family: 'Mali', sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+section{
+    padding: 2rem 9%;
+}
+
+
+
+.heading1{
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+  
+}
+
+.heading1::before{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    height: .01rem;
+    background: #ffa825;
+    z-index: -1;
+}
+
+.heading1 span{
+    font-size: 2rem;
+    padding: .5rem 2rem;
+   
+    color: rgb(236, 100, 100);
+    background: #FFF;
+    border: var(--border);
+}
+
+
+.us{
+    text-align: center;
+    font-size: 2rem;
+    color: #fbcd89;
+    padding-top: 7rem;
+    text-decoration: .3rem underline #fff2e0;
+}
+
+
+.us:hover{
+    text-decoration: .3rem  underline #fbcd89;
+    cursor: pointer;
+}
+
+
+.btn{
+    display: inline-block;
+    align-items: center;
+    margin-top: .5rem;
+    border-radius: 1rem;
+    background: #fbcd89;
+    color: brown;
+    padding: 1rem .5rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn:hover{
+    background: #fff1d8;
+}
+
+header .logo{
+    font-family: 'Mali', sans-serif;
+    font-size: 35px;
+    font-weight: bolder;
+    color: var(--black);
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: white;
+    padding: .8rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: 0 .3rem .5rem gainsboro;
+}
+
+header .navbar a{
+    font-size: 1rem;
+    padding: 0 1.5rem;
+    color: rgb(177, 173, 168);
+}
+
+header .navbar a:hover{
+    color: darksalmon;
+}
+
+header .icons a{
+    font-size: 1.5rem;
+    color: darkslategrey;
+    padding: .6rem;
+    
+}
+
+
+header .icons  a:hover{
+    color: darksalmon;
+}
+
+header #toggler{
+    display: none;
+}
+
+header .fa-bars{
+    font-size: 2.5rem;
+    color: grey;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    cursor: pointer;
+    border: .3rem solid rgb(169, 169, 169);
+    display: none;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: url('bg1.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+
+.home .content{
+    max-width: 50rem;
+}
+
+.home .content h1{
+    font-size: 2rem;
+    color: rgb(33, 33, 33);
+}
+
+.home .content h5{
+    font-size: 1.3rem;
+    color: #fbcd89;
+    padding: .3rem 0;
+    line-height: .7;
+}
+
+.home .content p{
+    font-size: 17px;
+    color: rgb(114, 114, 114);
+    padding: .5rem 0;
+    line-height: 1.5;
+}
+
+footer .box-container{
+    margin-bottom: 0px;
+    text-align: center;
+    padding: .5rem 0;
+    line-height: 1.3;
+    
+}
+
+footer .box-container .box a{
+    color: rgb(114, 114, 114);
+    font-size: .8rem;
+    padding: 1rem .8rem;
+}
+
+footer .box-container .box h3{
+    color: rgb(83, 83, 83);
+    font-size: 1.1rem;
+    padding: 1rem 0;
+}
+
+footer .box-container .box a:hover{
+    color: #fbcd89;
+    text-decoration: underline;
+}
+
+footer .credit{
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    font-size: 1rem;
+    color: rgb(114, 114, 114);
+    border-top:  .1rem solid #e6cfae;
+    
+}
+
+footer .credit span{
+    color: #fbcd89;
+}
+
+
+
+
+
+
+
+
+
+.about .row .content h2{
+    font-size: 1.7rem;
+    color: #fbcd89;
+    line-height: 2.5;
+   
+}
+
+
+
+.special .special-con{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+
+}
+
+.special1 .special-con1{
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 2fr;
+    column-gap: 1rem;
+    row-gap: 1rem;
+
+}
+
+
+.special .special-con .box{
+    display: block;
+    padding: .1rem .1rem ;
+    text-align: center;
+    box-shadow: 0 .5rem 1.5rem #8e8d8c;
+    border-radius: .5rem;
+    border: .1rem solid #bebebe;
+    max-width: 100%;
+    max-height: 100%;
+    
+}
+
+
+
+.special .special-con .box:hover .im .icons{
+    bottom: 0;
+}
+
+.special .special-con .box .im{
+    text-align: center;
+    padding-top: 1rem;
+    overflow: hidden;
+}
+
+.special .special-con .box img{
+    max-width: 50%;
+    max-height: 50%;
+    
+}
+
+.special .special-con .box:hover img{
+    transform: scale(1.1);
+}
+
+.special .special-con .box .im .icons{
+    position: relative;
+    bottom: -7rem; left: 0; right: 0;
+    display: flex;
+}
+
+.special .special-con .box .im .icons a{
+    height: 3rem;
+    line-height: 3rem;
+    font-size: 1.5rem;
+    width: 50%;
+    background: var(--color);
+    color: #FFF;
+}
+
+.special .special-con .box .im .icons a:hover{
+    background-color:  #ffa825;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color:  #ffa825;
+    cursor: pointer;
+}
+
+button{
+    background-color: var(--color);
+    color: #FFF;
+}
+
+.special .special-con .box .im .icons .cart-btn{
+    border-left: .1rem solid #dedede;
+    border-right: .1rem solid #dedede;
+    width: 100%;
+}
+
+.special .special-con .box .im .icons button:hover{
+    background: #ffa825;
+}
+
+
+.special .special-con .box .content {
+    padding: 1rem;
+    text-align: center;
+    display: block;
+}
+
+.special .special-con .box .content h3{
+    font-size: 1.5rem;
+    padding-top: -1rem;
+    padding-bottom: .5rem;
+    color: rgb(95, 95, 95);
+    display: block;
+}
+
+.special .special-con .box .content .price{
+    font-size: 1rem;
+    color: rgb(255, 85, 85);
+    padding-top: .1rem ;
+    font-weight: bolder;
+}
+
+.special .special-con .box .content .price span{
+    font-size: 1rem;
+    color: rgb(95, 95, 95);
+    font-weight: lighter;
+}
+
+.special .special-con .box .content p{
+    font-size: 1rem;
+    padding: 0;
+    padding-top: 1rem;
+    border-top: #e6cfae;
+    color: rgb(246, 114, 90);
+}
+
+.special .special-con .box .content p span{
+    color: rgb(255, 85, 85);
+    font-size: .8rem;
+    padding: 0 .1rem;
+    padding-bottom: .5rem;
+}
+
+.special .special-con .box .content del{
+    font-size: .7rem;
+    color: #8e8d8c;
+    font-weight: lighter;
+    text-decoration: line-through;
+    
+}
+
+del{
+    font-size: 1rem;
+    color: #8e8d8c;
+    font-weight: lighter;
+    text-decoration: line-through;
+}
+
+.deall{
+    display: flex;
+    align-items: end;
+    min-height: 80vh;
+    background: url('FOR.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 2rem 2rem;
+    padding: 3rem 45rem ;
+}
+
+.deall .content a{
+    display: inline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+    header {
+        padding: 1.5rem;
+    }
+
+    section{
+        padding: 2rem;
+    }
+}
+
+
+
+@media (max-width:779px) {
+    html {
+        font-size: 55%;
+    }
+    header .fa-bars{
+        display: block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgb(228, 211, 177);
+        border-top: .1rem solid blanchedalmond;
+        
+    }
+
+    header #toggler:checked ~ .navbar {
+        clip-path: polygon(0 0, 100% 0, 100% 0,0 0);
+    }
+
+    header .navbar a{
+        color: rgb(52, 52, 52);
+        margin: 1.5rem;
+        padding: 1.5rem;
+        background: rgb(255, 255, 255);
+        border: .1rem solid rgb(192, 192, 176);
+        display: block;
+        border-radius: .8rem;
+    }
+
+    .home {
+        background-position: left ;
+    }
+
+    .home .content h3{
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .home .content p{
+        font-size: 13px;
+        align-items: center;
+       
+    }
+    
+    
+
+}
+
+@media (max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .us{
+        font-size: 1rem;
+    }
+
+   
+}

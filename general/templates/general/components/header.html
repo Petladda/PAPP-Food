@@ -1,0 +1,44 @@
+{% load static %}
+<header class="header">
+
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+    <a href="{% url 'home' %}" class="logo">   
+        <span>PAPP...</span>
+     </a>
+    <nav class="navbar ">
+        <a href="{% url 'home' %}">หน้าหลัก</a>
+        <a href="{% url 'manufoods' %}">เมนูทั้งหมด</a>
+        <a href="#deall">โปรโมชั่น</a>
+        <a href="{% url 'aboutus' %}">เกี่ยวกับ</a>
+    </nav>
+    {% if user.is_authenticated %}
+    <div class="icons">
+        <a href="#" class="fas fa-heart"></a>
+        <a href="{% url 'showcart' %}" class="fas fa-shopping-cart"> <span style=" text-align: center;
+            color:#fff;
+            background-color: red;
+            width: 40px;
+            height: 45px;
+            border-radius: 45%;
+            font-size: 1.5rem;"
+            >  &nbsp; {{order.total_item}} &nbsp;</span></a>
+        
+        <a id="login-btn" href="#"> {{ user.username }}</a>
+        <a id="login-btn"  class="fa-solid fa-arrow-right-from-bracket" href="{% url 'logout' %}"></a>
+    </div>
+    {% else %}
+    <div class="icons">
+        <a href="" class="fas fa-heart"></a>
+        <a href="{% url 'showcart' %}" class="fas fa-shopping-cart"> <span style=" text-align: center;
+            color:#fff;
+            background-color: red;
+            width: 40px;
+            height: 45px;
+            border-radius: 45%;
+            font-size: 1.5rem;"
+            >  &nbsp; {{order.total_item}} &nbsp;</span></a>
+        <a id="login-btn" class="fas fa-user" href="{% url 'login' %}"></a>
+    </div>
+    {% endif %}
+</header>

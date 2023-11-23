@@ -1,0 +1,42 @@
+<header class="header">
+
+    <input type="checkbox" name="" id="toggler">
+    <label for="toggler" class="fas fa-bars"></label>
+    <a style="text-decoration: none;" href="{% url 'home' %}" class="logo ">   
+        <span >PAPP...</span>
+     </a>
+    <nav  class="navbar ">
+        <a style="text-decoration: none;" href="{% url 'home' %}">หน้าหลัก</a>
+        <a style="text-decoration: none;" href="{% url 'manufoods' %}">เมนูทั้งหมด</a>
+        <a style="text-decoration: none;" href="{% url 'home' %}">โปรโมชั่น</a>
+        <a style="text-decoration: none;" href="{% url 'aboutus' %}">เกี่ยวกับ</a>
+    </nav>
+    {% if user.is_authenticated %}
+    <div  class="icons">
+        <a style="text-decoration: none;" href="#" class="fas fa-heart"></a>
+        <a style="text-decoration: none;" href="{% url 'showcart' %}" class="fas fa-shopping-cart"> <span style=" text-align: center;
+            color:#fff;
+            background-color: red;
+            width: 40px;
+            height: 45px;
+            border-radius: 45%;
+            font-size: 1.5rem;"
+            >  &nbsp; {{order.total_item}} &nbsp;</span></a>
+        <a style="text-decoration: none;" id="login-btn" href="#"> {{ user.username }}</a>
+        <a style="text-decoration: none;" id="login-btn"  class="fa-solid fa-arrow-right-from-bracket" href="{% url 'logout' %}"></a>
+    </div>
+    {% else %}
+    <div class="icons">
+        <a style="text-decoration: none;" href="#" class="fas fa-heart"></a>
+        <a style="text-decoration: none;" href="{% url 'showcart' %}" class="fas fa-shopping-cart"> <span style=" text-align: center;
+            color:#fff;
+            background-color: red;
+            width: 40px;
+            height: 45px;
+            border-radius: 45%;
+            font-size: 1.5rem;"
+            >  &nbsp; {{order.total_item}} &nbsp;</span></a>
+        <a style="text-decoration: none;" id="login-btn" class="fas fa-user" href="{% url 'login' %}"></a>
+    </div>
+    {% endif %}
+</header>

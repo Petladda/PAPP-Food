@@ -1,0 +1,24 @@
+{% extends 'general/components/base.html' %}
+{% block title %}เข้าสู่ระบบ | {% endblock %}
+
+{% block content %}
+<section class="register" id="register">
+   <div class="con">
+         <h2>เข้าสู่ระบบ</h2>
+         <form action="{% url 'login' %}" method="post" novalidate class="regis"> 
+            {% csrf_token %}
+            {{ form.non_field_errors }}
+            
+               {% for fm in form %}
+                  {{fm.label_tag}}
+                  <label>{{fm}}</label>
+                  {{fm.errors|striptags}}
+               {% endfor %}
+               <input type="submit" value="เข้าสู่ระบบ" class="btn">
+            
+         </form>
+         <p>ยังไม่มีบัญชีเข้าไม่ได้นะจ๊ะไป <a href="{% url 'register' %}">ลงทะเบียน</a></p>
+   </div>
+</section>
+
+{% endblock content %}

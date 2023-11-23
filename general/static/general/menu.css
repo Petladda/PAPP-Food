@@ -1,0 +1,193 @@
+/* chonburi-regular - latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Chonburi';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/chonburi-v10-latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+         url('fonts/chonburi-v10-latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+/* mali-regular - thai_latin */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'Mali';
+    font-style: normal;
+    font-weight: 400;
+    src: url('fonts/mali-v9-thai_latin-regular.woff2') format('woff2'), /* Chrome 36+, Opera 23+, Firefox 39+ */
+         url('fonts/mali-v9-thai_latin-regular.woff') format('woff'); /* Chrome 5+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+:root{
+    --color: #fbcd89;
+    --border: .2rem solid #fbcd89;
+    --border-hover: .1rem #fbcd89;
+    --box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*, ::before, ::after{
+    margin: 0;padding: 0;
+    box-sizing: border-box;
+    outline: none; border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .1s linear;
+}
+
+html {
+    font-family: 'Mali', sans-serif;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    overflow-x: hidden;
+}
+
+.aboutus{
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    background: url('we1.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin: 3rem 3rem;
+    padding: 3rem 45rem;
+    border-radius: 2rem;
+}
+
+
+.menu{
+    text-align: center;
+    font-size: 2rem;
+    color: #fbcd89;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    
+}
+
+.single_food {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+    grid-gap: 1.5rem;
+    align-items: center;
+    margin-top: 10rem;
+    padding-bottom: 15rem;
+}
+
+.single_food .single:hover img{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.single_food .single img{
+    max-height: 100%;
+    width: 480px;
+    height: auto;
+}
+
+.single_food .detail h1{
+    color: var(--color);
+}
+
+.single_food .detail .pricee{
+    font-size: 1.5rem;
+}
+
+.single_food .detail .pre{
+    color: crimson;
+    line-height: 2rem;
+}
+
+.single_food .detail .dis{
+    line-height: 2rem;
+    max-width: 33rem;
+}
+
+.single_food .detail .ps-price{
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+.single_food .detail .ps-de{
+    color: crimson;
+    line-height: 1.8rem;
+}
+
+
+.single_food .detail .spe-price{
+    font-size: 1.5rem;
+}
+
+.single_food .detail .iconss .btn{
+    font-size: 1.5rem;
+    
+}
+
+.single_food .detail .iconss .btn button:hover{
+    background: #fff1d8;
+    color: var(--color);
+    cursor: pointer;
+}
+
+.single_food .detail .iconss .btn i{
+    color: #fff1d8;
+}
+
+.single_food .detail .iconss .btn i:hover{
+    color: crimson;
+}
+
+.register{
+    background-color: #fbcd89;
+}
+
+.register .con{
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    margin-top: 7rem;
+    margin-bottom: 1rem;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.register .con h2{
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #fff1d8;
+}
+
+.register .con form{
+    width: 300px;
+    margin-left: 100px;
+}
+
+.register .con form label{
+    display: flex;
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.register .con form input{
+    width: 100%;
+    padding: 7px;
+    border-radius: 3px;
+    border: 1px solid #fbcd89;
+    outline: none;
+}
+
+.register .con form input[type="submit"]{
+    margin-top: 20px;
+}
+
+
+.register .con p{
+    text-align: center;
+    padding-top: 20px;
+
+}
+
+.register .con p a:hover{
+    color: #fbcd89;
+}
+
+
+

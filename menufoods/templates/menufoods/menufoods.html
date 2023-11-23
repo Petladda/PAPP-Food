@@ -1,0 +1,63 @@
+{% extends 'general/components/base.html' %}
+{% block title %}เมนูทั้งหมด | {% endblock %}
+{% load static %}
+{% block index %}
+
+<section  class="special" id="special"> 
+  <a ><h1 class="menu"><span>รายการอาหารทั้งหมด</span></h1></a>
+  {% if menufoods.count > 0 %}
+      <div class="special-con">
+          {% for food in menufoods %}
+              
+              <div class="box" href="{% url 'food' food.id%}">
+                  <div class="im">
+                      <a href="{% url 'food' food.id%}"><img src="{{food.image.url}}" alt=""></a>
+                      <div class="icons">
+                          <a type="submit" class="fas fa-heart  " ></a>
+                          <button data-food="{{food.id}}" data-action="add"  type="submit"class="cart-btn update-cart" >เพิ่มลงตะกร้า</button>
+                      </div>
+                  </div>    
+                  <div class="content">
+                    <a href="{% url 'food' food.id%}">
+                      <h3>{{food.name}}</h3>
+                    </a>
+                  {% if food.is_premium and food.special_price %}
+                      <p>
+                        <b>Price: {{ food.special_price|floatformat:'g' }} บาท</b>
+                        <del class="text-gray">{{ food.price|floatformat:'g' }} บาท</del>
+                      <p>ราคาพิเศษ</p>
+                      <p>*** เมนูพิเศษสุด Premium</p>
+                      </p>
+                
+                  {% elif food.is_premium %}
+                    <p></p>
+                    <b> Price: {{food.price}} บาท</b>
+                    <p>*** เมนูพิเศษสุด Premium</p>
+                    <p></p>
+ 
+                  {% elif food.special_price %}
+                    <p>
+                      <b>Price: {{ food.special_price|floatformat:'g' }} บาท</b>
+                      <del class="text-gray">{{ food.price|floatformat:'g' }} บาท</del>
+                    <p>ราคาพิเศษ</p>
+                  {% else %}
+                      <p></p>
+                      <b> Price: {{food.price|floatformat:'g' }} บาท</b>
+                      <p></p>
+                      <b>ราคาปกติ</b>
+                      <p></p>
+                  {% endif %}
+                    <a href="{% url 'food' food.id%}" class="btn"> รายละเอียดเพิ่มเติม </a>
+                  </div>
+                  
+              </div>
+                
+          {% endfor %}
+      </div>
+  {% else %}
+      <p>***ยังไม่มีเมนู***</p>
+  {% endif %}
+</section>
+
+
+{% endblock %}

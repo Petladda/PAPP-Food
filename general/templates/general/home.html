@@ -1,0 +1,100 @@
+{% extends 'general/components/base.html' %}
+{% load static %}
+
+{% block index %}
+
+<section class="home" id="home">
+    
+    <div class="content">
+        <h1>PAPP... มีอะไรกินก็กินไปก๊อนนนน</h1>
+        <h5>ยินดีต้อนรับรอนานหน่อย แต่อร่อยนะบอกก่อน ดีเลิศประเสริฐศรีดีเป็นที่สุด</h5>
+        <p>อาหารไทย เป็นอาหารประจำของประเทศไทย ที่มีการสั่งสมและถ่ายทอดมาอย่างต่อเนื่องตั้งแต่อดีตจนถึงปัจจุบัน 
+            จนเป็นเอกลักษณ์ประจำชาติ ถือได้ว่าอาหารไทยเป็นวัฒนธรรมประจำชาติที่สำคัญของประเทศไทย อาหารที่ขึ้นชื่อที่สุดของคนไทย 
+            คือ น้ำพริกปลาทู พร้อมกับเครื่องเคียงที่จัดมาเป็นชุด
+        </p>
+        <a href="{% url 'manufoods' %}" class="btn">เลือกเมนูอาหาร</a>
+    </div>
+</section>
+<section class="special" id="special">
+    <a href="{% url 'manufoods' %}" class="heading1"><h1 ><span>ลดราคาพิเศษ</span></h1></a>
+    
+    {% if home.count > 0 %}
+        <div class="special-con">
+            {% for special in home %}
+                {% if special.special_price%}
+                <div class="box" href="{% url 'food' special.id%}">
+                    <div class="im">
+                        <a href="{% url 'food' special.id%}"><img src="{{special.image.url}}" alt=""></a>
+                        <div class="icons">
+                            <a href="#" class="fas fa-heart"></a>
+                            <button data-food="{{special.id}}" data-action="add"  type="submit"class="cart-btn update-cart" >เพิ่มลงตะกร้า</button>
+                        </div>
+                    </div>    
+                    <div class="content">
+                        <a href="{% url 'food' special.id%}">
+                            <h3>{{special.name}}</h3>
+                        </a>
+                        <div class="price"><span>price: </span>{{special.special_price}} บาท <del class="text-gray">{{ special.price|floatformat:'g' }} บาท</del></div>
+                        <p>
+                            <span class="fas fa-circle"></span> ราคาพิเศษ
+                            <span class="fas fa-circle"></span> จุใจ
+                            <span class="fas fa-circle"></span> ที่นี่ที่เดียว
+                        </p>
+                        <a href="{% url 'food' special.id%}" class="btn "> รายละเอียดเพิ่มเติม </a>
+                    </div>
+                    
+                </div>
+                  
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>***ยังไม่มีเมนู***</p>
+    {% endif %}
+    
+</section>
+
+<section class="deall" id="deall">
+    <div class="content">
+        <a href="{% url 'manufoods' %}" class="btn">SHOP NOW</a>
+    </div>
+</section>
+
+<section  class="special" id="special"> 
+    <a href="{% url 'manufoods' %}" class="heading1"><h1 ><span>เมนูสุดพิเศษ</span></h1></a><br>
+    {% if home.count > 0 %}
+        <div class="special-con">
+            {% for premium in home %}
+                {% if premium.is_premium%}
+                <div class="box" href="{% url 'food' premium.id%}">
+                    <div class="im">
+                        <a href="{% url 'food' premium.id%}"><img src="{{premium.image.url}}" alt=""></a>
+                        <div class="icons">
+                            <a  type="submit" class="fas fa-heart "></a>
+                            <button data-food="{{premium.id}}" data-action="add"  type="submit"class="cart-btn update-cart" >เพิ่มลงตะกร้า</button>
+                        </div>
+                    </div>    
+                    <div class="content">
+                        <a href="{% url 'food' premium.id%}">
+                            <h3>{{premium.name}}</h3>
+                        </a>
+                        <div class="price"><span>price: </span>{{premium.price}} บาท</div>
+                        <p>
+                            <span class="fas fa-circle"></span> เมนูพิเศษ
+                            <span class="fas fa-circle"></span> จุใจ
+                            <span class="fas fa-circle"></span> ที่นี่ที่เดียว
+                        </p>
+                        <a href="{% url 'food' premium.id%}" class="btn"> รายละเอียดเพิ่มเติม </a>
+                    </div>
+                    
+                </div>
+                  
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>***ยังไม่มีเมนู***</p>
+    {% endif %}
+</section>
+
+{% endblock %}

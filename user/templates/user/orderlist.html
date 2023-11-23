@@ -1,0 +1,40 @@
+{% extends 'general/components/base2.html' %}
+{% block title %} ออเดอร์สินค้า | {% endblock %}
+{% load static %}
+   <br>
+{% block content %}
+<br><br><br>
+<div class="row m-5 p-5 border border-warning-subtle" >
+    <div class="col-lg-6 ">
+        <div class="box-element">
+            <a  class="btn btn-outline-warning" href="{% url 'showcart' %}">&#x2190; กลับหน้าตะกร้า</a>
+            <br>
+            <hr>
+            <h3>รายการสินค้า</h3>
+            <h5>ชื่อผู้ซื้อ :  {{user}}</h5>
+            <hr>
+            {% for item in items%}
+            <div class="cart-row">
+                <div style="flex:2"><img class="row-image" src="{{item.food.image.url}}"></div>
+                {% if item.food.special_price %}
+                <div style="flex:2"><p>{{item.food.name}}</p></div>
+                <div style="flex:1"><p>{{item.food.special_price |floatformat:'g'}} ฿</p></div>
+                <div style="flex:1"><p>x{{item.quantity}}</p></div>
+                {% else %}
+                <div style="flex:2"><p>{{item.food.name}}</p></div>
+                <div style="flex:1"><p>{{item.food.price |floatformat:'g'}} ฿</p></div>
+                <div style="flex:1"><p>x{{item.quantity}}</p></div>
+                {% endif %}
+            </div>
+             {% endfor %}
+            <br>
+            <h5>จำนวนรายการ:   {{order.total_item}}</h5>
+            <h5>รวม:    {{order.total_price |floatformat:'g'}} ฿</h5>
+            <h5><span class="text-danger">ราคาที่ลดแล้วและต้องจ่าย:  <strong> {{order.total_price_discount |floatformat:'g'}} ฿</strong></span></strong></h5>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
